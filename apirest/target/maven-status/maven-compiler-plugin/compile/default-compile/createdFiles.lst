@@ -1,0 +1,6 @@
+com\example\apirest\servicios\EstudianteServicio.class
+com\example\apirest\ApirestApplication.class
+com\example\apirest\modelos\EstudianteModelo.class
+com\example\apirest\respositorio\EstudianteRepo.class
+com\example\apirest\controlador\EstudianteControlador.class
+com\example\apirest\ServletInitializer.class
