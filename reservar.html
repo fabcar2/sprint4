@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	
+	<script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        
+
+      
+
+        $(function(){
+
+                   
+            $("#reservar").on("click",function(){
+                var identificacion=$("#identificacion").val();
+                var cancha=$("#identificacion").val();
+                var fecha=$("#fecha").val();
+                var horas=$("#hora").val();
+                var endpoint="http://localhost:8080/reserva";
+
+                fetch(endpoint,{
+                    method:"POST",
+                    mode:"cors",
+                    cache:"no-cache",
+                    headers:{"Content-type":"application/json"},
+					body:JSON.stringify({identificacion,cancha,fecha})
+                   
+				  
+				   
+                }).then(response=>response.json(function(){
+     
+
+
+                }))
+
+            })
+            
+        })
+
+
+
+
+    </script>
+	
+	
+	
+</head>
+<body>
+    
+    <label>Formulario para Realizar la reserva de la cancha de futbol</label><br>
+    <br>
+    <form>
+        <form>
+		        <label>Identificación:</label>
+                <input type="number" id="identificacion" placeholder="Numero de documento" required><br>
+            <p>Seleccione el tipo de Cancha a reservar</p>
+            <div>
+              <input type="radio" id="futbol5"
+               name="tipocancha" value="futbol5" required>
+              <label for="tipocanchaf5">Futbol 5.</label>
+          
+              <input type="radio" id="futbol7"
+               name="tipocancha" value="futbol7" required>
+              <label for="tipocanchaf7"> Futbol 7.</label>
+                     
+            </div>
+
+            <p>Seleccione la fecha y hora de la reserva</p><br>
+            <label>Fecha:</label> 
+            <input type="date" id="fecha" placeholder="Seleccionar fecha" required><br>
+            <label>Hora:</label> 
+            <input type="time" id="hora"  step="60" required><br>
+
+            <div>
+              <button type="submit" id="reservar">Reservar</button>
+            </div>
+          </form> 
+    <br>
+    <br>
+
+    <a href="inicio.html">
+        <button>Inicio</button>
+    </a>
+
+
+</body>
+</html>
